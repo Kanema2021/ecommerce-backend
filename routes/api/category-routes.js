@@ -21,6 +21,7 @@ try {
 } catch (err) {
   res.status(500).json(err)
 }
+})
 
 //get one category
 router.get('/:id', async (req, res) => {
@@ -33,7 +34,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Product,
-          attributes: ['category_id,', 'id, product_name', 'stock', 'price']
+          attributes: ['category_id,', 'id', 'product_name', 'stock', 'price']
         },
       ]
     });
@@ -90,6 +91,5 @@ router.delete('/:id', async (req, res) => {
     res.status(500).jason(err);
   }
 });
-})
 
 module.exports = router;
